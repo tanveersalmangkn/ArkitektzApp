@@ -1,2 +1,0 @@
-export const GIF_TRENDING ="GIF_TRENDING"
-export const GIF_SEARCH ="GIF_SEARCH"

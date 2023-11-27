@@ -1,4 +1,3 @@
-// FeedbackScreen.tsx
 import React from 'react';
 import {View, ToastAndroid, Platform} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -69,7 +68,7 @@ export const FeedbackScreen: React.FC<Props> = () => {
             label="Name"
             value={formik.values.name}
             onChangeText={formik.handleChange('name')}
-            onBlur={formik.handleBlur('name')}
+            onBlur={() => formik.handleBlur('name')}
             placeholder="Enter your name"
             error={formik.touched.name && formik.errors.name}
           />
@@ -77,16 +76,17 @@ export const FeedbackScreen: React.FC<Props> = () => {
             label="Email"
             value={formik.values.email}
             onChangeText={formik.handleChange('email')}
-            onBlur={formik.handleBlur('email')}
+            onBlur={() => formik.handleBlur('email')}
             placeholder="Enter your email"
             error={formik.touched.email && formik.errors.email}
+            keyboardType="email-address"
           />
 
           <TextInputField
             label="Feedback"
             value={formik.values.feedback}
             onChangeText={formik.handleChange('feedback')}
-            onBlur={formik.handleBlur('feedback')}
+            onBlur={() => formik.handleBlur('feedback')}
             placeholder="Enter your feedback"
             error={formik.touched.feedback && formik.errors.feedback}
           />

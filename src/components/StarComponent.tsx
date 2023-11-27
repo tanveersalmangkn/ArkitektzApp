@@ -1,4 +1,3 @@
-// StarRating.tsx
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Rating} from 'react-native-ratings';
@@ -6,7 +5,7 @@ import {Rating} from 'react-native-ratings';
 type StarRatingProps = {
   value: number;
   onChange: (value: number) => void;
-  error?: string;
+  error?: string | undefined | false;
 };
 
 export const StarComponent: React.FC<StarRatingProps> = ({

@@ -8,7 +8,7 @@ type TextInputFieldProps = {
   onBlur?: () => void;
   placeholder?: string;
   keyboardType?: 'default' | 'numeric' | 'email-address';
-  error?: string | undefined;
+  error?: string | undefined | false;
 };
 
 export const TextInputField: React.FC<TextInputFieldProps> = ({
