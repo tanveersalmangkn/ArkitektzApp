@@ -9,4 +9,7 @@ module.exports = {
     '**/?(*.)+(spec|test).{js,jsx,ts,tsx}',
   ],
   testPathIgnorePatterns: ['/node_modules/', '/android/', '/ios/'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|@react-navigation)',
+  ],
 };

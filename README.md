@@ -1,28 +1,14 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Arkitektz Code Challenge
 
-# Getting Started
+## How to run test the application
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+#### Install the dependencies
 
-## Step 1: Start the Metro Server
+First of all make sure React Native Environment is configured correctly on your PC
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+Make Sure to install the dependencies by running `yarn install` or `npm install`
 
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+#### For Android
 
 ```bash
 # using npm
@@ -32,9 +18,11 @@ npm run android
 yarn android
 ```
 
-### For iOS
+#### For iOS
 
 ```bash
+pod install
+
 # using npm
 npm run ios
 
@@ -42,38 +30,64 @@ npm run ios
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+### Testing
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+For testing I have used jest for unit testing and detox for e2e testing
 
-## Step 3: Modifying your App
+The testing files for unit testing are in root in a folder named `__tests__`
+And for e2e it is in the folder named `e2e`
 
-Now that you have successfully run the app, let's modify it.
+### For Jest
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+you can simply open the terminal and run
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+```
+# using yarn
+yarn test
 
-## Congratulations! :tada:
+# using npm
+npm test
+```
 
-You've successfully run and modified your React Native App. :partying_face:
+### For Detox
 
-### Now what?
+make sure to install detox globally first
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+```
+npm install -g detox-cli
+```
 
-# Troubleshooting
+after that in terminal of your project run these commands
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```
+# iOS
+detox build -c ios
+# Android
+detox build -c android
+```
 
-# Learn More
+## Reasoning behind the approach taken
 
-To learn more about React Native, take a look at the following resources:
+### Testing
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+I chose `jest` for unit because it already comes with React Native and primarily due to its simplicity, speed, and comprehensive test suite capabilities, making it well-suited for isolating and testing individual components.
+
+And using `Detox` for e2e because it allows testing the entire application flow in a realistic environment, ensuring smooth interactions between components. Detox provides a robust solution for testing the app as a whole, simulating real user interactions on both iOS and Android platforms.
+
+### API calls
+
+I used React Query in this app to call APIs as it has a lot of advantages like Automatic Caching, Real-time Updates, Optimistic Updates, Built-in Loading and Error States, Server-Side Rendering (SSR) Support and Global State Management.
+
+### Design
+
+I have the approach to design the screens in efficient manner like making reusable components and reusing it through out the app wherever needed. I focus on creating custom components rather than using UI libraries because using unnecassary libraries can affect on the app to make it slow and heavy.
+
+## Total time taken
+
+I might have taken more than 10 hours to work on this task
+
+## Which solutions relied on googling hints, tips or answers; Googling is acceptable, but you should be prepared to explain your understanding of the solution and provide references to the source material as applicable.
+
+Yes I took help from Google as I used React Query in this app to call APIs, while implementing the infinite loading in flatlist of the gif data it helped me because i was using react query after a long time, they had updated a lot of things so it helped me to solve the problems i was facing.
+
+And for e2e testing I have not that much experience so took help for that as well. I am not good at it, but I am a quick learner and I can work on it.

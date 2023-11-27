@@ -3,5 +3,10 @@
   "compilerOptions": {
     "jsx": "react-native",
     "esModuleInterop": true,
-  }
+    "target": "esnext",
+    "module": "commonjs",
+    "strict": true,
+
+  },
+  "exclude": ["node_modules", "e2e"]
 }
