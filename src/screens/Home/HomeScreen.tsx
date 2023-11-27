@@ -16,11 +16,13 @@ export const HomeScreen: React.FC<Props> = ({navigation}) => {
         <CustomButton
           title="Go to GIF Screen"
           onPress={() => navigation.navigate('GifScreen', {})}
+          testID="gif-button"
         />
         <View style={styles.spacing} />
         <CustomButton
           title="Go to Feedback Screen"
           onPress={() => navigation.navigate('FeedbackScreen', {})}
+          testID="feedback-button"
         />
       </View>
     </View>

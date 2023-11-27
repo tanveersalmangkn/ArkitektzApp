@@ -24,6 +24,7 @@ export const TextInputField: React.FC<TextInputFieldProps> = ({
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
       <TextInput
+        testID="username-input"
         style={styles.input}
         value={value}
         onChangeText={onChangeText}

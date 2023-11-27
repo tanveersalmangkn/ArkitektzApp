@@ -5,15 +5,20 @@ type CustomButtonProps = {
   title: string;
   onPress: () => void;
   style?: object;
+  testID?: string;
 };
 
 export const CustomButton: React.FC<CustomButtonProps> = ({
   title,
   onPress,
   style,
+  testID,
 }) => {
   return (
-    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+    <TouchableOpacity
+      style={[styles.button, style]}
+      onPress={onPress}
+      testID={testID}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );

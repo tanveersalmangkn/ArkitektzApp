@@ -8,12 +8,16 @@ type Gif = {
   title: string;
 };
 
-export const GifItem: React.FC<{item: Gif}> = ({item}) => {
+export const GifItem: React.FC<{item: Gif; testID?: string}> = ({
+  item,
+  testID,
+}) => {
   const imageUrl = `https://media.giphy.com/media/${item?.id}/giphy.${item?.type}`;
 
   return (
-    <View style={styles.cardStyle}>
+    <View style={styles.cardStyle} testID={testID}>
       <Image
+        testID="gif-image"
         source={{uri: imageUrl}}
         style={styles.imgStyle}
         onError={error =>

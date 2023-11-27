@@ -21,11 +21,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         placeholder="Search your fav Gif"
         onChangeText={text => onChangeText(text)}
         style={styles.inputStyle}
+        testID="search-input"
       />
       {value ? (
-        <Button title="Clear" onPress={onClear} />
+        <Button title="Clear" onPress={onClear} testID="clear-button" />
       ) : (
-        <Button title="Search" onPress={onSearch} />
+        <Button title="Search" onPress={onSearch} testID="search-button" />
       )}
     </View>
   );
