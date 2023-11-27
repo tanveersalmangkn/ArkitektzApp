@@ -82,6 +82,10 @@ I used React Query in this app to call APIs as it has a lot of advantages like A
 
 I have the approach to design the screens in efficient manner like making reusable components and reusing it through out the app wherever needed. I focus on creating custom components rather than using UI libraries because using unnecassary libraries can affect on the app to make it slow and heavy.
 
+## Assumptions made
+
+After going through the instructions given in the file I assumed that what approach would I take like there was this feature to be made where I have call two APIs `trending` & `search` so I was first thinking should I use any middleware for this like Redux-Saga or Redux-Thunk then I switched my mind to React Query as it has its own advantages as I have mentioned above. And after that I was thinking how would I perform the task in most efficient way, using less third-party libraries and making some good logics.
+
 ## Total time taken
 
 I might have taken more than 10 hours to work on this task
