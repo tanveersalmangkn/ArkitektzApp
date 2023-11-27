@@ -20,9 +20,6 @@ export const GifItem: React.FC<{item: Gif; testID?: string}> = ({
         testID="gif-image"
         source={{uri: imageUrl}}
         style={styles.imgStyle}
-        onError={error =>
-          console.log('Image Load Error:', error.nativeEvent.error)
-        }
       />
       <Text style={styles.textStyle}>{item?.title}</Text>
     </View>

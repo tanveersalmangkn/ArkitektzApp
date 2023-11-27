@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import {ActivityIndicator, FlatList, View} from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  Text,
+  View,
+  StyleSheet,
+} from 'react-native';
 import {useQuery} from 'react-query';
 import {http} from '../../utils/http';
 import {SearchBar} from '../../components/SearchBar';
 import {GifItem} from '../../components/GifItems';
+import {CustomButton} from '../../components/Button';
 
 type Props = {};
 
@@ -47,7 +54,7 @@ export const GifScreen: React.FC<Props> = () => {
     refetch();
   };
 
-  const {data, refetch, isLoading, error} = useQuery(
+  const {refetch, isLoading, isError} = useQuery(
     ['gifs', searchText, page],
     fetchGifs,
     {
@@ -62,7 +69,6 @@ export const GifScreen: React.FC<Props> = () => {
         setRefreshing(false);
       },
       onError: err => {
-        console.log('Error:', err);
         setRefreshing(false);
       },
       enabled: true,
@@ -103,8 +109,17 @@ export const GifScreen: React.FC<Props> = () => {
 
   if (isLoading && page === 1) {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.containerStyle}>
         <ActivityIndicator size="small" color="black" />
+      </View>
+    );
+  }
+
+  if (isError) {
+    return (
+      <View style={styles.containerStyle}>
+        <Text style={styles.textStyle}>Something went wrong</Text>
+        <CustomButton title="Try Again" onPress={() => refetch()} />
       </View>
     );
   }
@@ -136,3 +151,8 @@ export const GifScreen: React.FC<Props> = () => {
     />
   );
 };
+
+const styles = StyleSheet.create({
+  containerStyle: {flex: 1, justifyContent: 'center', alignItems: 'center'},
+  textStyle: {padding: 10},
+});
